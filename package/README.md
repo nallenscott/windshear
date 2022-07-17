@@ -52,3 +52,24 @@ export default function Component () {
   )
 }
 ```
+
+### Mobile user agents
+
+Windshear provides basic detection for mobile user agents, and currently supports user agent strings containing the keywords Android, webOS, iPhone, iPad, iPod, or BlackBerry.
+
+```js
+import { useViewport } from 'windshear'
+
+export default function Component () {
+  const viewport = useViewport()
+  return (
+    <>
+      {
+        viewport.isMobileAgent ?
+          (<p>ComponentA</p>) :
+          (<p>ComponentB</p>)
+      }
+    </>
+  )
+}
+```
