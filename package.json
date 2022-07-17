@@ -1,0 +1,30 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "yarn build:package && yarn build:example",
+    "build:example": "yarn workspace example build",
+    "build:package": "yarn workspace windshear build",
+    "bump": "yarn workspace windshear bump",
+    "changelog": "yarn auto-changelog -p && git add CHANGELOG.md",
+    "develop": "concurrently -n Package,Example \"yarn watch:package\" \"yarn watch:example\"",
+    "watch:example": "yarn workspace example develop",
+    "watch:package": "yarn workspace windshear watch",
+    "test": "yarn workspace windshear test",
+    "coverage": "yarn workspace windshear coverage"
+  },
+  "devDependencies": {
+    "auto-changelog": "^2.4.0",
+    "concurrently": "^7.2.2",
+    "eslint": "^8.20.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.4",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.30.1"
+  },
+  "workspaces": [
+    "example",
+    "package"
+  ],
+  "license": "BSD-3-Clause"
+}

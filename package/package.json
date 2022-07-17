@@ -1,0 +1,46 @@
+{
+  "name": "windshear",
+  "version": "1.0.0",
+  "description": "React hook for just-in-time component rendering, with first-class support for Tailwind CSS.",
+  "license": "BSD-3-Clause",
+  "author": "Nathan Allen <hello@nallenscott.com>",
+  "repository": "github:nallenscott/windshear",
+  "bugs": "https://github.com/nallenscott/windshear/issues",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "react",
+    "hooks",
+    "react-hooks",
+    "media-queries",
+    "breakpoints",
+    "tailwind-css",
+    "just-in-time",
+    "viewport-dimensions",
+    "pinpoint-accuracy"
+  ],
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "bump": "npm version",
+    "prepublishOnly": "yarn build",
+    "watch": "nodemon --watch src --exec \"yarn build\"",
+    "test": "jest",
+    "coverage": "jest --coverage"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.18.6",
+    "@babel/core": "^7.18.6",
+    "@babel/preset-env": "^7.18.6",
+    "@babel/preset-react": "^7.18.6",
+    "@testing-library/react": "^13.3",
+    "jest": "^28.1.3",
+    "jest-environment-jsdom": "^28.1.3",
+    "mq-polyfill": "^1.1.8",
+    "nodemon": "^2.0.19"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
