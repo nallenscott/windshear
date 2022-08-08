@@ -15,7 +15,7 @@ npm install windshear
 
 ### Viewport dimensions
 
-Windshear provides realtime viewport information that can be used to control the visibility of components or any feature that relies on the width/height of the viewport. Just call `useViewport`, and Windshear will continuously update the `currentWidth` and `currentHeight` properties using the global `window.innerWidth` and `window.innerHeight` values, respectively.
+Windshear provides realtime viewport information that can be used to control the visibility of components or any feature that relies on the width/height of the viewport. Just call `useViewport`, and Windshear will continuously update the `currentWidth` and `currentHeight` properties using the global `window.innerWidth` and `window.innerHeight` for desktop browsers, and `window.screen.width` and `window.screen.height` for mobile browsers.
 
 ```js
 import { useViewport } from 'windshear'
