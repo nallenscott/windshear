@@ -23,7 +23,7 @@
   ],
   "scripts": {
     "build": "babel src --out-dir dist",
-    "bump": "npm version",
+    "bump": "yarn version --new-version",
     "prepublishOnly": "yarn build",
     "watch": "nodemon --watch src --exec \"yarn build\"",
     "test": "jest",
