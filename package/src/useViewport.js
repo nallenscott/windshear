@@ -1,11 +1,5 @@
 import * as React from 'react'
-import {
-  each,
-  isArray,
-  isPlainObject,
-  isString,
-  parseInt
-} from 'lodash'
+import { each, isArray, isPlainObject, isString, parseInt } from 'lodash'
 import { screens } from 'tailwindcss/defaultTheme'
 
 export const useViewport = (queries = screens) => {
@@ -101,10 +95,12 @@ export const useViewport = (queries = screens) => {
           : 0
       }
 
+      /**
+       * https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent#mobile_tablet_or_desktop
+       */
       function isMobileAgent () {
         return typeof navigator !== 'undefined'
-          ? /Android|webOS|iPhone|iPad|iPod|BlackBerry/i
-            .test(navigator.userAgent)
+          ? /Mobi/.test(navigator.userAgent)
           : false
       }
 
