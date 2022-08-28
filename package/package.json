@@ -23,7 +23,7 @@
   ],
   "scripts": {
     "build": "babel src --out-dir dist",
-    "bump": "yarn version --new-version",
+    "version": "yarn auto-changelog -p -o ../CHANGELOG.md && git add ../CHANGELOG.md",
     "prepublishOnly": "yarn build",
     "watch": "nodemon --watch src --exec \"yarn build\"",
     "test": "jest",
