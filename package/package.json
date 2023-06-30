@@ -1,6 +1,6 @@
 {
   "name": "windshear",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "React hook for just-in-time component rendering, with first-class support for Tailwind CSS.",
   "license": "BSD-3-Clause",
   "author": "Nathan Allen <hello@nallenscott.com>",
