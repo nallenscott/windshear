@@ -13,13 +13,13 @@
   },
   "devDependencies": {
     "auto-changelog": "^2.4.0",
-    "concurrently": "^7.3.0",
-    "eslint": "^8.23.0",
-    "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-n": "^15.2.5",
-    "eslint-plugin-promise": "^6.0.1",
-    "eslint-plugin-react": "^7.31.1"
+    "concurrently": "^8.2.0",
+    "eslint": "^8.43.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^16.0.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.32.2"
   },
   "workspaces": [
     "example",
