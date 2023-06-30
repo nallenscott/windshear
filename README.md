@@ -1,4 +1,7 @@
-# windshear
+<h1 align="center">
+  <img src="package/windshear.png" width=175 alt=""><br>
+  windshear<br>
+</h1>
 
 Windshear is a React hook for just-in-time component rendering, with first-class support for [Tailwind CSS](https://tailwindcss.com/docs). Easily bind visibility and other events to viewport dimensions and breakpoints with pinpoint accuracy.
 
@@ -14,7 +17,7 @@ windshear
 
 ## Developing
 
-Run the following command from the root of the project directory to begin working on patches and new features. This will start an example site, built with [Next.js](https://nextjs.org), where you can quickly confirm your changes.
+Run the following command from the root of the project directory to begin working on patches and new features. This will start an example site with [Next.js](https://nextjs.org), where you can quickly confirm your changes.
 
 ```
 % yarn develop
