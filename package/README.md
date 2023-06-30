@@ -1,4 +1,7 @@
-# windshear
+<h1 align="center">
+  <img src="windshear.png" width=175 alt=""><br>
+  windshear<br>
+</h1>
 
 Windshear is a React hook for just-in-time component rendering, with first-class support for [Tailwind CSS](https://tailwindcss.com/docs). Easily bind visibility and other events to viewport dimensions and breakpoints with pinpoint accuracy.
 
