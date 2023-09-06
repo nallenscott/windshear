@@ -43,7 +43,7 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "concurrently": "^8.2.0",
+    "concurrently": "^8.2.1",
     "eslint": "^8.43.0",
     "lodash": "^4.17.21"
   }
