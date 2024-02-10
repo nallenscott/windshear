@@ -1,4 +1,4 @@
-name: CI
+name: build
 
 on:
   push:
@@ -12,8 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@main
-    - run: npm install -g yarn
-    - run: yarn install
-    - run: yarn build
-    - run: yarn test
-    - run: yarn coverage
+    - run: npm install
+    - run: npm run build
+    - run: npm test
+    - run: npm run coverage
