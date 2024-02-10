@@ -23,7 +23,7 @@
   ],
   "scripts": {
     "build": "babel src --out-dir dist",
-    "version": "npm auto-changelog -p -o ../CHANGELOG.md && git add ../CHANGELOG.md",
+    "version": "npx auto-changelog -p -o CHANGELOG.md && git add CHANGELOG.md",
     "prepublishOnly": "npm run build",
     "watch": "nodemon --watch src --exec \"npm run build\"",
     "test": "jest",
