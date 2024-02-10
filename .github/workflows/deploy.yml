@@ -6,12 +6,30 @@ on:
       - main
     paths:
       - src/*
-      - test/*
       - package.json
+      - test/*
 
 jobs:
-  test:
+  detect_changes:
     runs-on: ubuntu-latest
+    outputs:
+      source: ${{ steps.filter_paths.outputs.source }}
+      package: ${{ steps.filter_paths.outputs.package }}
+      test: ${{ steps.filter_paths.outputs.test }}
+
+    steps:
+    - name: Detect which paths have changed
+      uses: dorny/paths-filter@v2.11.1
+      id: filter_paths
+      with:
+        filters: |
+          source: src/*
+          package: package.json
+          test: test/*
+
+  run_tests:
+    runs-on: ubuntu-latest
+    needs: detect_changes
 
     steps:
     - name: Checkout repository
@@ -24,9 +42,10 @@ jobs:
         npm test
         npm run coverage
 
-  release:
+  create_release:
     runs-on: ubuntu-latest
-    needs: test
+    needs: [run_tests, detect_changes]
+    if: ${{ needs.detect_changes.outputs.source == 'true' || needs.detect_changes.outputs.package == 'true' }}
     permissions:
       contents: write
 
@@ -48,9 +67,9 @@ jobs:
           body: ${{ steps.bump_version.outputs.changelog }}
           generateReleaseNotes: true
 
-  publish:
+  publish_package:
     runs-on: ubuntu-latest
-    needs: release
+    needs: create_release
 
     steps:
       - name: Publish to npm
