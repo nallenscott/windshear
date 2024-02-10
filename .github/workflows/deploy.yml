@@ -1,0 +1,57 @@
+name: test
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - src/*
+      - test/*
+      - package.json
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@main
+
+    - name: Run build, test, and coverage
+      run: |
+        npm ci
+        npm run build
+        npm test
+        npm run coverage
+
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.1.1
+
+      - name: Bump version and push tag
+        uses: mathieudutour/github-tag-action@v6.1
+        id: bump_version
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create a GitHub release
+        uses: ncipollo/release-action@v1.13.0
+        with:
+          name: Release ${{ steps.bump_version.outputs.new_tag }}
+          tag: ${{ steps.bump_version.outputs.new_tag }}
+          body: ${{ steps.bump_version.outputs.changelog }}
+          generateReleaseNotes: true
+
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Publish to npm
+        uses: js-devtools/npm-publish@v3
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
