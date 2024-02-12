@@ -60,7 +60,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create a GitHub release
-        uses: ncipollo/release-action@v1.13.0
+        uses: ncipollo/release-action@v1.14.0
         with:
           name: Release ${{ steps.bump_version.outputs.new_tag }}
           tag: ${{ steps.bump_version.outputs.new_tag }}
